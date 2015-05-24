@@ -25,13 +25,20 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
-                    <label for="title">Title:</label> 
-                    <input placeholder="今日は何がありましたか？" name="title" id="title"
-                        th:field="*{title}" type="text" /> 
-                    <label for="record">Record:</label>
-                    <textarea name="record" id="record" cols="30" rows="5"
-                        placeholder="詳細に教えていただけますか？" th:field="*{record}"></textarea>
-                    <button type="submit">送信</button>
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input
+                                placeholder="今日は何がありましたか？"
+                                name="title" id="title" th:field="*{title}" type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="record">Record:</label>
+                        <textarea
+                            name="record" id="record" cols="30" rows="5"
+                            placeholder="詳細に教えていただけますか？"
+                            th:field="*{record}"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-default" >送信</button>
                 </div>
             </div>
         </div>
