@@ -1,37 +1,46 @@
 <!DOCTYPE html >
-<html  xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head lang="ja">
-    <meta charset="UTF-8" />
-    <title>Record Writer</title>
+<meta charset="UTF-8" />
+<title>Record Writer</title>
+<link rel="stylesheet"
+    href="/static/bower_components/bootstrap/dist/css/bootstrap.css"
+    th:href="@{/bower_components/bootstrap/dist/css/bootstrap.css}" />
 </head>
 <body>
-<form action="./" method="post" th:object="${recordForm}">
-    <h4 class="panel-title">
-        今日の出来事を記載する
-    </h4>
-    <label
-            for="title">Title:</label>
-    <input
-            placeholder="今日は何がありましたか？"
-            name="title" id="title" th:field="*{title}" type="text"/>
-    <label
-            for="record">Record:</label>
-                                    <textarea
-                                            name="record"
-                                            id="record"
-                                            cols="30"
-                                            rows="5"
-                                            placeholder="詳細に教えていただけますか？"
-                                            th:field="*{record}"></textarea>
-    <button type="submit" >送信</button>
-</form>
+    <script src="/static/bower_components/jquery/dist/jquery.js"
+        th:src="@{/bower_components/jquery/dist/jquery.js}"></script>
+    <script
+        src="/static/bower_components/bootstrap/dist/js/bootstrap.js"
+        th:src="@{/bower_components/bootstrap/dist/js/bootstrap.js}"></script>
+    <form action="./" method="post" th:object="${recordForm}">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#writeRecord" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        今日の出来事を記載する
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                    <label for="title">Title:</label> 
+                    <input placeholder="今日は何がありましたか？" name="title" id="title"
+                        th:field="*{title}" type="text" /> 
+                    <label for="record">Record:</label>
+                    <textarea name="record" id="record" cols="30" rows="5"
+                        placeholder="詳細に教えていただけますか？" th:field="*{record}"></textarea>
+                    <button type="submit">送信</button>
+                </div>
+            </div>
+        </div>
+    </form>
 
-<div th:each="record,iterStat  : ${records}" >
-    <h4 class="panel-title" th:text="${record.title}">
-    </h4>
-    <div class="panel-body" th:text="${record.record}">
+    <div th:each="record,iterStat  : ${records}">
+        <h4 class="panel-title" th:text="${record.title}"></h4>
+        <div class="panel-body" th:text="${record.record}"></div>
     </div>
-</div>
 
 </body>
 </html>

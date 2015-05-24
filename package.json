@@ -1,0 +1,22 @@
+{
+  "name": "RecordWriteTemplate",
+  "version": "1.0.0",
+  "description": "レスポンシブデザイン勉強用のテンプレートです。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kajiwara22/RecordWriteTemplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kajiwara22/RecordWriteTemplate/issues"
+  },
+  "homepage": "https://github.com/kajiwara22/RecordWriteTemplate",
+  "dependencies": {
+    "bower": "^1.4.1"
+  }
+}
