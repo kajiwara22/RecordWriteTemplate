@@ -14,31 +14,54 @@
         src="/static/bower_components/bootstrap/dist/js/bootstrap.js"
         th:src="@{/bower_components/bootstrap/dist/js/bootstrap.js}"></script>
     <form action="./" method="post" th:object="${recordForm}">
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#writeRecord" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                        今日の出来事を記載する
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                <div class="panel-body">
-                    <div class="form-group">
-                        <label for="title">Title:</label>
-                        <input
-                                placeholder="今日は何がありましたか？"
-                                name="title" id="title" th:field="*{title}" type="text"/>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse"
+                            data-parent="#writeRecord"
+                            href="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne"> <span
+                            class="glyphicon glyphicon-edit"
+                            aria-hidden="true"></span> 今日の出来事を記載する
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in"
+                    role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="row" style="margin-top: 20px">
+                            <div class="form-group">
+                                <label
+                                    class="col col-md-1 col-sm-2 col-xs-3"
+                                    for="title">Title:</label> <input
+                                    class="col col-md-3 col-sm-10 col-xs-9"
+                                    placeholder="今日は何がありましたか？"
+                                    name="title" id="title"
+                                    th:field="*{title}" type="text" />
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px">
+                            <div class="form-group">
+                                <label
+                                    class="col col-md-1 col-sm-2 col-xs-3"
+                                    for="record">Record:</label>
+                                <textarea
+                                    class="col col-md-3 col-sm-10 col-xs-9"
+                                    name="record" id="record" cols="30"
+                                    rows="5"
+                                    placeholder="詳細に教えていただけますか？"
+                                    th:field="*{record}"></textarea>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px">
+                            <button type="submit"
+                                class="btn btn-default col
+                                        col-md-2 col-md-offset-2
+                                        col-sm-10 col-sm-offset-2
+                                        col-xs-9 col-xs-offset-3">送信</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="record">Record:</label>
-                        <textarea
-                            name="record" id="record" cols="30" rows="5"
-                            placeholder="詳細に教えていただけますか？"
-                            th:field="*{record}"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-default" >送信</button>
                 </div>
             </div>
         </div>
