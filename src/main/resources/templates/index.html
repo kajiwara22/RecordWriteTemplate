@@ -64,13 +64,13 @@
                     </div>
                 </div>
             </div>
+            <div th:each="record,iterStat  : ${records}">
+                <h4 th:text="${record.title}"></h4>
+                <div th:text="${record.record}"></div>
+            </div>
         </div>
     </form>
 
-    <div th:each="record,iterStat  : ${records}">
-        <h4 class="panel-title" th:text="${record.title}"></h4>
-        <div class="panel-body" th:text="${record.record}"></div>
-    </div>
 
 </body>
 </html>
