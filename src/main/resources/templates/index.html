@@ -18,7 +18,7 @@
             th:src="@{/bower_components/angularjs/angular.js}"></script>
     <script src="/static/js/app.js" th:src="@{/js/app.js}"></script>
     <script src="/static/js/controller/indexController.js" th:src="@{/js/controller/indexController.js}"></script>
-    <form action="./" method="post" th:object="${recordForm}">
+    <form name="form" action="./" method="post" th:object="${recordForm}">
         <div class="container" ng-controller="indexController">
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
@@ -46,6 +46,7 @@
                                         placeholder="今日は何がありましたか？"
                                         ng-model="title"
                                         required="true"
+                                        ng-maxlength="20"
                                         name="title" id="title" th:field="*{title}" type="text"/>
                                 </div>
                             </div>
@@ -61,6 +62,7 @@
                                             name="record"
                                             ng-model="record"
                                             required="true"
+                                            ng-maxlength="140"
                                             id="record"
                                             cols="30"
                                             rows="5"
