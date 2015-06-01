@@ -36,9 +36,9 @@
                     role="tabpanel" aria-labelledby="headingOne">
                     <div class="panel-body">
                         <div class="row" style="margin-top: 20px">
-                            <div class="form-group">
+                            <div class="form-group" ng-class="{true: 'has-error',false: 'is-required'}[form.title.$dirty &amp;&amp; form.title.$invalid]" >
                                 <label
-                                    class="col col-md-1 col-sm-2 col-xs-3"
+                                    class="control-label col col-md-1 col-sm-2 col-xs-3"
                                     for="title">Title:</label>
                                 <div class="col col-md-5 col-sm-10 col-xs-9 ">
                                     <input
@@ -52,9 +52,9 @@
                             </div>
                         </div>
                         <div class="row" style="margin-top: 20px">
-                            <div class="form-group">
+                            <div class="form-group" ng-class="{true: 'has-error',false: 'is-required'}[form.record.$dirty &amp;&amp; form.record.$invalid]" >
                                 <label
-                                    class="col col-md-1 col-sm-2 col-xs-3"
+                                    class="control-label col col-md-1 col-sm-2 col-xs-3"
                                     for="record">Record:</label>
                                     <div class="col col-md-5 col-sm-10 col-xs-9" >
                                         <textarea
