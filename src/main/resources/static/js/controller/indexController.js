@@ -23,6 +23,19 @@
             }
         };
 
+        /**
+         * レコード一覧取得の初期化処理
+         */
+        var initRecordForm = function(){
+            $scope.editRecord = false;
+            $scope.record = '';
+            $scope.title = '';
+            if(angular.isDefined($scope.form) && angular.isFunction($scope.form.$setPristine)){
+                $scope.form.$setPristine(); //formの状態をユーザーに操作されていない状態とする
+            }
+            $scope.editTargetRecord = null;
+            getRecord();
+        };
 
         /**
          * レコード一覧を取得する
@@ -33,8 +46,22 @@
             }
         };
 
+        /**
+         * レコードの新規作成を行う
+         */
+        var createRecord = function(){
+            var record = {
+                'title'     :   $scope.title,
+                'record'    :   $scope.record
+            };
+            recordService.createRecord.save(record).$promise.then(function(){
+                initRecordForm();
+            });
+        };
+
         $scope.lengthCheck = lengthCheck;
-        getRecord();
+        $scope.createRecord = createRecord;
+        initRecordForm();
 
     });
 }());

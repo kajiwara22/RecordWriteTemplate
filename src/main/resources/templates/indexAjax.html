@@ -22,7 +22,7 @@
     <script src="/static/js/app.js" th:src="@{/js/app.js}"></script>
     <script src="/static/js/controller/indexController.js" th:src="@{/js/controller/indexController.js}"></script>
     <script src="/static/js/service/recordService.js" th:src="@{/js/service/recordService.js}"></script>
-    <form name="form" action="./" method="post" th:object="${recordForm}">
+    <div ng-form="form" novalidate="">
         <div class="container" ng-controller="indexController">
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
@@ -51,7 +51,7 @@
                                         ng-model="title"
                                         required="true"
                                         ng-maxlength="20"
-                                        name="title" id="title" th:field="*{title}" type="text"/>
+                                        name="title" id="title" type="text"/>
                                 </div>
                             </div>
                         </div>
@@ -70,8 +70,8 @@
                                             id="record"
                                             cols="30"
                                             rows="5"
-                                            placeholder="詳細に教えていただけますか？"
-                                            th:field="*{record}"></textarea>
+                                            placeholder="詳細に教えていただけますか？">
+                                        </textarea>
                                     </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@
                                             col-md-2 col-md-offset-0
                                             col-sm-10 col-sm-offset-0
                                             col-xs-9 col-xs-offset-0">
-                                    <button type="submit"
+                                    <button ng-click="createRecord()"
                                             ng-class="{disabled:form.$invalid}"
                                             class="btn btn-default form-control" >送信</button>
                                 </div>
@@ -155,7 +155,7 @@
 
 
         </div>
-    </form>
+    </div>
 
 
 </body>
