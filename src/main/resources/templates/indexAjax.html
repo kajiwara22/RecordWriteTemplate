@@ -6,6 +6,7 @@
 <link rel="stylesheet"
     href="/static/bower_components/bootstrap/dist/css/bootstrap.css"
     th:href="@{/bower_components/bootstrap/dist/css/bootstrap.css}" />
+<link rel="stylesheet" href="/static/css/rcwStyle.css" th:href="@{/css/rcwStyle.css}"/>
 </head>
 <body>
     <script src="/static/bower_components/jquery/dist/jquery.js"
@@ -108,6 +109,7 @@
                                    aria-expanded="true" aria-controls="collapseOne">
                                     {{records[$index].title}}
                                 </a>
+                                <span ng-click="deleteRecord(records[$index].id)" class="text-danger glyphicon glyphicon-remove floatRightIcon" aria-hidden="true"></span>
                             </h4>
                         </div>
                         <div id="record{{$index}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -125,6 +127,7 @@
                                    aria-expanded="true" aria-controls="collapseOne">
                                     {{records[$index + 1].title}}
                                 </a>
+                                <span ng-click="deleteRecord(records[$index + 1].id)" class="text-danger glyphicon glyphicon-remove floatRightIcon" aria-hidden="true"></span>
                             </h4>
                         </div>
                         <div id="record{{$index + 1}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
@@ -142,6 +145,7 @@
                                    aria-expanded="true" aria-controls="collapseOne">
                                     {{records[$index + 2].title}}
                                 </a>
+                                <span ng-click="deleteRecord(records[$index + 2].id)" class="text-danger glyphicon glyphicon-remove floatRightIcon" aria-hidden="true"></span>
                             </h4>
                         </div>
                         <div id="record{{$index + 2}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">

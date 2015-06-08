@@ -59,8 +59,19 @@
             });
         };
 
+        /**
+         * 指定したレコードを削除する
+         * @param id 削除対象レコードid
+         */
+        var deleteRecord = function(id){
+            recordService.record.delete({'id':id}).$promise.then(function(){
+                initRecordForm();
+            });
+        };
+
         $scope.lengthCheck = lengthCheck;
         $scope.createRecord = createRecord;
+        $scope.deleteRecord = deleteRecord;
         initRecordForm();
 
     });
