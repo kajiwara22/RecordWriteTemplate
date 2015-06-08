@@ -33,6 +33,12 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping(method = RequestMethod.GET,value="/ajaxIndex")
+    public String showAjaxPage(Model model){
+        model.addAttribute("records",recordRepository.findAll());
+        return "indexAjax";
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public String register(@Validated RecordForm recordForm,BindingResult result){
         if(result.hasErrors()){
