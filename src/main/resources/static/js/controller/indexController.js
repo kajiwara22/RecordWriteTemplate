@@ -69,9 +69,45 @@
             });
         };
 
+        /**
+         * 指定したレコードを編集対象とする
+         * @param selectRecord 編集対象レコード
+         */
+        var selectEditTargetRecord = function(selectRecord){
+            $scope.editRecord = true;
+            recordService.record.get({'id':selectRecord.id}).$promise.then(function(record) {
+                $scope.editTargetRecord = record;
+            });
+        };
+
+        /**
+         * レコード編集からレコード作成への切り替えを行う
+         */
+        var releaseTargetRecord = function(){
+            $scope.editRecord = false;
+            $scope.record = '';
+            $scope.title = '';
+            $scope.editTargetRecord = null;
+            if(angular.isDefined($scope.form) && angular.isFunction($scope.form.$setPristine)){
+                $scope.form.$setPristine();
+            }
+        };
+
+        /**
+         * レコードの更新を行う
+         */
+        var updateRecord = function(){
+            $scope.editTargetRecord.$update().then(function(){
+                initRecordForm();
+            });
+        };
+
         $scope.lengthCheck = lengthCheck;
         $scope.createRecord = createRecord;
         $scope.deleteRecord = deleteRecord;
+        $scope.selectEditTargetRecord = selectEditTargetRecord;
+        $scope.releaseTargetRecord = releaseTargetRecord;
+        $scope.updateRecord = updateRecord;
         initRecordForm();
 
     });
