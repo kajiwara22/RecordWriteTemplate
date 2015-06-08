@@ -1,6 +1,6 @@
 (function(){
     'use strict';
-    angular.module('rcw').controller('indexController',function($scope){
+    angular.module('rcw').controller('indexController',function($scope,$location,recordService){
 
         /**
          * 指定した文字列の長さと現在の文字列長に応じてクラス名を返す
@@ -22,7 +22,19 @@
                 }
             }
         };
+
+
+        /**
+         * レコード一覧を取得する
+         */
+        var getRecord = function(){
+            if($location.absUrl().match(/ajaxIndex/)){
+                $scope.records = recordService.records.query();
+            }
+        };
+
         $scope.lengthCheck = lengthCheck;
+        getRecord();
 
     });
 }());
